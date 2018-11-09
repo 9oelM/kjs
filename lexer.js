@@ -1,18 +1,56 @@
-/*
-    <<<LEXER>>>
-    lexical analyzer splits a code string into small meaningful chunks (tokens)
-    You need to know how you would split a code (based on what? newlines? whitespaces?)
+/**
+ * typeGroup
+ * contains information used to check token types (identifier, keyword, separator, operator, literal, comment...)
+ * 
 */
+const typeGroup = {
+    command: [
+        // if
+        "만약",
+        // while
+        "동안에",
+        // return
+        "출력",
+        // function
+        "함수",
+    ],
+    operator: [
+        "="    
+    ],
+    literal: [
+        {
+            type: "number",
+            rule: (value) => typeof Number(value) === "number" && !isNaN(Number(value))
+        }
+    ],
+    identifer: [
+        "identifier",    
+    ],
+    comment: [
+        "comment"    
+    ]
+}
 
-/*
-    Type checker. 
-    Used to understand every single input.
-    
+/**
+ * typeChecker. 
+ * inspects a token and categorizes them into different token classes (identifier, keyword, separator, ...) and their values.
+ * @param value - Token value
 */
-const typeChecker = (value, index, array) => {
-    // less complex than if-else
+const typeChecker = (value) => {
     switch(true){
-
+        /*  keywords */
+        case (value === "만약"):
+            return "command"
+            break;
+        // 
+        case (value === "동안에"):
+            return "command"
+            break;
+        // return
+        case (value === "출력"):
+            return "command"
+            break;
+            
         /*  commands */
         case (value === "만들어"):
             return "command"
@@ -34,7 +72,7 @@ const typeChecker = (value, index, array) => {
             return "number"
             break;
         // If it's a string and the previous token is a command
-        case (typeof value === "string" && array[index-1] == "만들어"):
+        case (typeof value === "string"):
             return "variableName"
             break;
             
@@ -45,8 +83,12 @@ const typeChecker = (value, index, array) => {
 
     }
 }
-/*
-    만들어 100
+
+/**
+ * Lexer.
+ * splits a code string into small meaningful chunks (tokens)
+ * @todo You need to know how you would split a code (based on what? newlines? whitespaces?)
+ * @param {string} code - The whole code that would be compiled.
 */
 const lexer = (code) => {
     return code
@@ -54,8 +96,8 @@ const lexer = (code) => {
     .split(/\s+/)
     // remove strings of which length <= 0 (useless)
     .filter(function (elem) { return elem.length > 0 })
-    .map((elem, index, arr) => {
-        return {type: typeChecker(elem, index, arr), value: elem}
+    .map((elem) => {
+        return {type: typeChecker(elem), value: elem}
     })
 }
 
