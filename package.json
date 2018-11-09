@@ -1,0 +1,20 @@
+{
+  "name": "kor-javascript",
+  "version": "1.0.0",
+  "description": "| JS Command | IDKWID Command | | --- | --- | | let | 만들어 | | const | 확실한걸만들어 | | function | 함수 | | var | 헷갈리는걸만들어 |",
+  "main": "index.js",
+  "dependencies": {
+    "kpop": "^0.1.2"
+  },
+  "devDependencies": {
+    "onchange": "^5.1.0",
+    "prettier": "^1.15.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "onchange '**/*.js' -- prettier --write {{changed}}"
+  },
+  "keywords": [],
+  "author": "Joel Mun",
+  "license": "MIT"
+}
