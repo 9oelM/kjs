@@ -81,10 +81,107 @@ I thought maybe having a look at these repos could be another good starting poin
 * [Chiffon](https://github.com/polygonplanet/Chiffon)
 
 ## Starting to try on `lexer.js`
+Ok. Now It's time to try something out. 
 
+First I now know that the output from the lexer should be something like this (here I looked at [Chiffon as a ref](https://polygonplanet.github.io/Chiffon/demo/javascript-parser-demo.html))
+
+Input
+
+```js
+let variable = 1;
+
+let example = () => {
+  console.log("hi")
+}
+
+const somethingFancy = [1,2,3].map((elem)=>elem*2)
+```
+
+Output
+
+```js
+[
+    {
+        "type": "Keyword",
+        "value": "let",
+        "range": [
+            0,
+            3
+        ],
+        "loc": {
+            "start": {
+                "line": 1,
+                "column": 0
+            },
+            "end": {
+                "line": 1,
+                "column": 3
+            }
+        }
+    },
+    {
+        "type": "Identifier",
+        "value": "variable",
+        "range": [
+            4,
+            12
+        ],
+        "loc": {
+            "start": {
+                "line": 1,
+                "column": 4
+            },
+            "end": {
+                "line": 1,
+                "column": 12
+            }
+        }
+    },
+    {
+        "type": "Punctuator",
+        "value": "=",
+        "range": [
+            13,
+            14
+        ],
+        "loc": {
+            "start": {
+                "line": 1,
+                "column": 13
+            },
+            "end": {
+                "line": 1,
+                "column": 14
+            }
+        }
+    },
+    {
+        "type": "Numeric",
+        "value": "1",
+        "range": [
+            15,
+            16
+        ],
+        "loc": {
+            "start": {
+                "line": 1,
+                "column": 15
+            },
+            "end": {
+                "line": 1,
+                "column": 16
+            }
+        }
+    },
+    ... too long, reference the link.
+]
+```
+
+## Thinking how
+1. You need to record the location.
 
 ## Sorting out dependencies and project structured
-Installed dependencies and configured scripts as follows:
+I also installed dependencies and configured scripts as follows:
 ```json
 "devDependencies": {
     "@babel/preset-env": "^7.1.5",
