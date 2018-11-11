@@ -1,7 +1,7 @@
 {
-  "name": "kor-javascript",
+  "name": "kjs",
   "version": "1.0.0",
-  "description": "| JS Command | IDKWID Command | | --- | --- | | let | 만들어 | | const | 확실한걸만들어 | | function | 함수 | | var | 헷갈리는걸만들어 |",
+  "description": "Javascript in Korean",
   "main": "index.js",
   "dependencies": {
     "kpop": "^0.1.2"
