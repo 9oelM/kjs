@@ -1,6 +1,6 @@
 /**
  * typeGroup
- * contains information used to check token types (identifier, keyword, separator, operator, literal, comment...)
+ * Contains information used to check token types (identifier, keyword, separator, operator, literal, comment...)
  * 
 */
 const typeGroup = {
