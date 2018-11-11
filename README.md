@@ -8,9 +8,13 @@
 * [ava](https://github.com/avajs/ava)
 
 # Day 1
+:hourglass:: 3 hours
+
 Just mingled around with the code from @kosamari's article on [How to be* a compiler — make a compiler with JavaScript](https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4).
 
 # Day 2
+:hourglass:: 2 hours
+
 Recognized I need to study on how a compiler really works. [Wikipedia](https://en.wikipedia.org/wiki/Lexical_analysis) provided a vast range of info on that. First, lexers:
 
 ## Lexer
@@ -51,13 +55,33 @@ int (keyword), value (identifier), = (operator), 100 (constant) and ; (symbol).
 ```
 
 # Day 3
-More into tokenization.
+:hourglass:: 2 hours
+
+## More tokenization
+More into tokenization: read on from [the point I stopped on Wikipedia on Day 2.](https://en.wikipedia.org/wiki/Lexical_analysis#Phrase_structure)
+
+Wikipedia states three ways a lexer may split the input codes into tokens:
+* Line breaks
+* Semicolon insertion
+* Off-side rule (indenting)
+
+## More lexer
+To make a lexer on my own, I needed more knowledge. [I read the first few articles on tutorialspoint](https://www.tutorialspoint.com/compiler_design/compiler_design_regular_expressions.htm). But this didn't really give me info--they were somewhat abstract. 
+
+## More more lexer
+And so I digged up in the Internet and found some useful resources with codes:
+* [How to build a math expression tokenizer using JavaScript (or any other language) -FreeCodeCamp](https://medium.freecodecamp.org/how-to-build-a-math-expression-tokenizer-using-javascript-3638d4e5fbe9)
+* [Implementing a Simple Compiler on 25 Lines of JavaScript](https://blog.mgechev.com/2017/09/16/developing-simple-interpreter-transpiler-compiler-tutorial/)
+* [Creating a basic lexer with Javascript](http://www.thinksincode.com/2016/10/30/create-a-basic-lexer.html)
 
 ## Relevant Github repos
-First I thought maybe having a look at these repos is a good starting point.
+I thought maybe having a look at these repos could be another good starting point.
 * [moo](https://github.com/no-context/moo)
 * [js-tokens](https://github.com/lydell/js-tokens)
 * [Chiffon](https://github.com/polygonplanet/Chiffon)
+
+## Starting to try on `lexer.js`
+
 
 ## Sorting out dependencies and project structured
 Installed dependencies and configured scripts as follows:
@@ -90,3 +114,4 @@ Installed dependencies and configured scripts as follows:
 * [How to implement a programming language in JavaScript - lisperator.net](http://lisperator.net/pltut/)
 * [How to be* a compiler — make a compiler with JavaScript](https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4)
 * [Compiler design - tutorialspoint](https://www.tutorialspoint.com/compiler_design)
+* [Parsing in Javascript: all the tools and libraries you can use](https://tomassetti.me/parsing-in-javascript/)
