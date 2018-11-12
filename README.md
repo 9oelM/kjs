@@ -177,8 +177,8 @@ Output
 ]
 ```
 
-## Thinking how
-1. You need to record the location.
+## Sorting out keywords
+Regular expressions are really hard to be applied on Korean as of now. So I opted for `keywords.includes()` instead of `keywordRegex.test()` for testing if a token matches keywords. 
 
 ## Sorting out dependencies and project structured
 I also installed dependencies and configured scripts as follows:
@@ -204,7 +204,71 @@ I also installed dependencies and configured scripts as follows:
     "babel": "babel src -d build"
   },
 ```
+# Day 4
+:hourglass:: 4 hours (spent failing things)
 
+## Jsdoc
+I was documenting things with jsdoc, but too much effort was needed to be put in. I had to specify types for all parameters, which was too troublesome. So I just decided to use typescript.
+
+Therefore I updated the dependencies as follows:
+
+```js
+"devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "ava": "1.0.0-rc.1",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "jsdoc": "^3.5.5",
+    "onchange": "^5.1.0",
+    "prettier": "^1.15.1",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.1.6",
+    "typescript-formatter": "^7.2.2"
+  },
+  "scripts": {
+    "test": "ava",
+    "prettier": "onchange '**/*.js' -- prettier --write {{changed}}",
+    "eslint": "./node_modules/.bin/eslint src",
+    "tslint": "./node_modules/.bin/tslint --project ./tsconfig.json",
+    "format": "./node_modules/.bin/tsfmt -r",
+    "jsdoc": "./node_modules/.bin/jsdoc src -r -c ./conf.json -d docs",
+    "babel": "babel src --out-dir dist",
+    "typescript": "./node_modules/.bin/tsc",
+    "watch": "onchange '**/*.ts' -- npm run format"
+  },
+```
+
+I installed `tslint`, `typescript`, and `typescript-formatter`. For some reason, `pretter-config-tslint` didn't really work for me and then I did not want to waste my time anymore on configuring things, so I opted for `typescript-formatter` which would essentially do the same thing. But I left `prettier` just in case if I would have any `.js` files. 
+
+## Typedoc
+And it was soon after that I understood that there was a method to document typescript as well other than `jsdoc` that cannot really understand typescript: [`typedoc`](https://github.com/TypeStrong/typedoc).
+
+So I deleted `jsdoc` and installed `typedoc`:
+
+A cool thing about `typedoc` is that:
+> TypeDoc runs the TypeScript compiler and extracts type information from the generated compiler symbols. Therefore you don’t have to include additional metadata within your comments, TypeScript specific elements like classes, enumerations or property types and access modifiers will be automatically detected.
+
+So I started using it!
+
+## Making project more comfty
+I didn't want to use `gulp` for the sake of simplicity: I would then need to write another piece of script. So I just installed `npm-run-all` and used its [`run-s`](https://github.com/mysticatea/npm-run-all/blob/master/docs/run-s.md) which would allow me to run `npm` commands sequentially, just like the `series` method in `gulp`. 
+
+But then I soon realized `npm-run-all` doesn't really work when there are errors in between (things like output from `tslint`)... so I switched to `gulp`.
+
+In configuring `gulpfile.babel.js`, there were some errors, so I again spent an hour figuring things out. 
+
+## Studying typescript
+But first I had no prior experience with `typescript` so I had to study it.
+Spent a few hours to get the basic concept.
+
+## Todo for Day 5
+* Fix conflicting rules (indentation) for spaces between `tslint` and `tsfmt`
 
 ## References to study
 * [Project: A Programming Language - eloquentjavascript](https://eloquentjavascript.net/12_language.html)
