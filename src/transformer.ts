@@ -4,23 +4,23 @@
 
 const transformer = (ast) => {
   let processedAst = {
-      body: []
-    }
+    body: []
+  }
 
   while (ast.body.length > 0) {
-      console.log(ast.body)
-      let currentNode = ast.body.shift()
-      switch (true) {
+    console.log(ast.body)
+    let currentNode = ast.body.shift()
+    switch (true) {
             /*
                 DECLARATION
 
                 Nothing to do here. just pass it to generator.
             */
-          case (currentNode._type === 'declaration'):
-            processedAst.body = [...processedAst.body, currentNode]
-            break
-        }
+      case (currentNode._type === 'declaration'):
+        processedAst.body = [...processedAst.body, currentNode]
+        break
     }
+  }
   return processedAst
 }
 

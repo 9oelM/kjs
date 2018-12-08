@@ -11,10 +11,10 @@ class Token {
   value: string
   location: Location
   constructor (public type: string, public value: string, public location: Location) {
-      this.type = type
-      this.value = value
-      this.location = location
-    }
+    this.type = type
+    this.value = value
+    this.location = location
+  }
 }
 
 /**
@@ -25,29 +25,29 @@ class Token {
 const typeGroup = {
   command: [
         // if
-      '만약',
+    '만약',
         // while
-      '동안에',
+    '동안에',
         // return
-      '출력',
+    '출력',
         // function
-      '함수'
-    ],
+    '함수'
+  ],
   operator: [
-      '='
-    ],
+    '='
+  ],
   literal: [
-      {
-        type: 'number',
-        rule: (value) => typeof Number(value) === 'number' && !isNaN(Number(value))
-      }
-    ],
+    {
+      type: 'number',
+      rule: (value) => typeof Number(value) === 'number' && !isNaN(Number(value))
+    }
+  ],
   identifer: [
-      'identifier'
-    ],
+    'identifier'
+  ],
   comment: [
-      'comment'
-    ]
+    'comment'
+  ]
 }
 
 /**
@@ -58,27 +58,27 @@ const typeGroup = {
 const typeChecker = (value) => {
   switch (true) {
         /*  keywords */
-      case (value === '만약'):
-        return 'command'
-        break
+    case (value === '만약'):
+      return 'command'
+      break
         //
-      case (value === '동안에'):
-        return 'command'
-        break
+    case (value === '동안에'):
+      return 'command'
+      break
         // return
-      case (value === '출력'):
-        return 'command'
-        break
+    case (value === '출력'):
+      return 'command'
+      break
 
         /*  commands */
-      case (value === '만들어'):
-        return 'command'
-        break
+    case (value === '만들어'):
+      return 'command'
+      break
 
         /*  operators   */
-      case (value === '='):
-        return 'operator'
-        break
+    case (value === '='):
+      return 'operator'
+      break
 
         /*  types   */
 
@@ -87,20 +87,20 @@ const typeChecker = (value) => {
             Number("test") // NaN
             typeof Number("test") === "number" // true
         */
-      case (typeof Number(value) === 'number' && !isNaN(Number(value))):
-        return 'number'
-        break
+    case (typeof Number(value) === 'number' && !isNaN(Number(value))):
+      return 'number'
+      break
         // If it's a string and the previous token is a command
-      case (typeof value === 'string'):
-        return 'variableName'
-        break
+    case (typeof value === 'string'):
+      return 'variableName'
+      break
 
         /* variables */
-      default:
-        return 'TypeError'
-        break
+    default:
+      return 'TypeError'
+      break
 
-    }
+  }
 }
 
 /**
