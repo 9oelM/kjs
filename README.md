@@ -6,6 +6,8 @@
 * [eslint](https://github.com/eslint/eslint)
 * [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 * [ava](https://github.com/avajs/ava)
+* [husky](https://github.com/typicode/husky)
+* [gulp](https://gulpjs.org/)
 
 # Day 1
 :hourglass:: 3 hours
@@ -276,3 +278,11 @@ Spent a few hours to get the basic concept.
 * [How to be* a compiler — make a compiler with JavaScript](https://medium.com/@kosamari/how-to-be-a-compiler-make-a-compiler-with-javascript-4a8a13d473b4)
 * [Compiler design - tutorialspoint](https://www.tutorialspoint.com/compiler_design)
 * [Parsing in Javascript: all the tools and libraries you can use](https://tomassetti.me/parsing-in-javascript/)
+
+# Day 6
+:hourglass:: 3 hours 
+
+* Removed `typescript-formatter` and be complacent of `tslint`.
+* Made `gulpfile` ready to produce outputs (`gulp` is kind of not fully ready to provide full support for ES6 features and the new features of its own, so I switched back from arrow function to normal ones)
+* Added [`husky`](https://github.com/typicode/husky) to help commits. 
+* Wrote basic grammar specs in `Spec.md`, still undone.
