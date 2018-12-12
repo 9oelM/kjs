@@ -286,3 +286,13 @@ Spent a few hours to get the basic concept.
 * Made `gulpfile` ready to produce outputs (`gulp` is kind of not fully ready to provide full support for ES6 features and the new features of its own, so I switched back from arrow function to normal ones)
 * Added [`husky`](https://github.com/typicode/husky) to help commits. 
 * Wrote basic grammar specs in `Spec.md`, still undone.
+
+# Day 7
+:hourglass:: 20 mins
+
+* Tried to setup environment for jest with the help of [basarat's guide](https://github.com/basarat/typescript-book/blob/master/docs/testing/jest.md):
+    ```
+    npm i -D typescript jest @types/jest ts-jest
+    ```
+
+* Confirmed `jest` works, using `foo.ts` and `foo.spec.ts`. Decided not to use `ava`.
