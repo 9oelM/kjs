@@ -1,51 +1,68 @@
-import { src, dest, watch, series, lastRun } from 'gulp'
+import {
+  src, dest, watch, series, lastRun
+} from "gulp"
 // https://www.npmjs.com/package/gulp-typescript-formatter
-import typescriptFormatter from 'gulp-typescript-formatter'
+import typescriptFormatter from "gulp-typescript-formatter"
 // https://www.npmjs.com/package/gulp-tslint
-import tslint from 'gulp-tslint'
+import tslint from "gulp-tslint"
 // https://www.npmjs.com/package/gulp-typescript
-import ts from 'gulp-typescript'
+import ts from "gulp-typescript"
+// https://www.npmjs.com/package/gulp-typedoc
+const typedoc = require("gulp-typedoc")
 // https://www.npmjs.com/package/gulp-typescript#using-tsconfigjson
-const tsProject = ts.createProject('tsconfig.json')
-
+const tsProject = ts.createProject("tsconfig.json")
 const _path = {
-  source: './src/*.ts',
-  destination: './build',
-  baseDir: '.',
+  source: "./src/**/*.ts",
+  destination: "./build",
+  baseDir: ".",
 }
 
 /**
  * *****************************************
  */
 
-function _lint({ source }){
+function _lint({ source }) {
   return src(source, { since: lastRun(_lint) })
     .pipe(
       tslint({
-        configuration: './tslint.json',
+        configuration: "./tslint.json",
         fix: true,
       })
     )
     .pipe(tslint.report({
-            emitError: false
-        }))
-    .on('error', err => {
+      emitError: false
+    }))
+    .on("error", err => {
     })
 }
 
-function _typescript({ source, destination }){
+function _typescript({ source, destination }) {
   return tsProject.src()
-        .pipe(tsProject())
-        .js.pipe(dest(destination))
+    .pipe(tsProject())
+    .js.pipe(dest(destination))
 }
 
-function _watch({source}){
-  return watch('./src/*.ts', series('lint', 'typescript'));
+function _watch({ source }) {
+  return watch(source, series("lint", "typescript", "typedoc"));
+}
+
+function _typedoc({ source }) {
+  return src("./src/index.ts")
+    .pipe(typedoc({
+      module: "commonjs",
+      mode: "modules",
+      target: "es5",
+      out: "docs/",
+      name: "kjs",
+      exclude: "__tests__/*",
+      //includeDeclarations: true,
+    }))
 }
 
 exports.watch = _watch
 exports.lint = () => _lint(_path)
 exports.typescript = () => _typescript(_path)
+exports.typedoc = () => _typedoc(_path)
 exports.default = _watch
 
 /* Lint used in place
