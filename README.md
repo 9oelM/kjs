@@ -3,9 +3,10 @@
 * [prettier](https://github.com/prettier/prettier)
 * [Node^8.9](nodejs.org)
 * [babel-cli](https://github.com/babel/babel)
-* [eslint](https://github.com/eslint/eslint)
-* [eslint-config-airbnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
-* [ava](https://github.com/avajs/ava)
+* [typescript](https://github.com/Microsoft/TypeScript)
+* [tslint](https://github.com/palantir/tslint)
+* [typedoc](https://typedoc.org/)
+* [jest](https://github.com/facebook/jest)
 * [husky](https://github.com/typicode/husky)
 * [gulp](https://gulpjs.org/)
 
@@ -296,3 +297,11 @@ Spent a few hours to get the basic concept.
     ```
 
 * Confirmed `jest` works, using `foo.ts` and `foo.spec.ts`. Decided not to use `ava`.
+
+# Day 8
+:hourglass:: 2 hours 
+
+* Added `typedoc` to `gulp` tasks.
+* [Submitted an issue on typedoc](https://github.com/TypeStrong/typedoc/issues/919)
+* Fixed miscellaneous errors in gulpfile.
+* Converted the existing code to an ugly typescript for now
