@@ -11,4 +11,4 @@ const generator = processedAst => {
   return codes.join('\n')
 }
 
-module.exports = generator
+export default generator

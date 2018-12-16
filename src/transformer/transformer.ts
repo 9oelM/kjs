@@ -1,8 +1,11 @@
 /*
     Transformer: compiles to another AST that's more friendly
 */
+interface ast {
+  body: array
+}
 
-const transformer = (ast) => {
+const transformer = function (ast: object): object {
   let processedAst = {
     body: []
   }
@@ -24,4 +27,4 @@ const transformer = (ast) => {
   return processedAst
 }
 
-module.exports = transformer
+export default transformer
