@@ -55,7 +55,7 @@ function _typedoc({ source }) {
       out: "docs/",
       name: "kjs",
       exclude: "__tests__/*",
-      //includeDeclarations: true,
+      // includeDeclarations: true,
     }))
 }
 
