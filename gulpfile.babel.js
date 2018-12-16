@@ -43,7 +43,7 @@ function _typescript({ source, destination }) {
 }
 
 function _watch({ source }) {
-  return watch(source, series("lint", "typescript", "typedoc"));
+  return watch(source, series("lint", "typescript"));
 }
 
 function _typedoc({ source }) {
@@ -59,11 +59,11 @@ function _typedoc({ source }) {
     }))
 }
 
-exports.watch = _watch
+exports.watch = () => _watch(_path)
 exports.lint = () => _lint(_path)
 exports.typescript = () => _typescript(_path)
 exports.typedoc = () => _typedoc(_path)
-exports.default = _watch
+exports.default = () => _watch(_path)
 
 /* Lint used in place
 function _format({ source, baseDir }){
