@@ -1,0 +1,10 @@
+const constants = {
+  IDENTIFIER: 'IDENTIFIER',
+  KEYWORD: 'KEYWORD',
+  SEPARATOR: 'SEPARATOR',
+  OPERATOR: 'OPERATOR',
+  LITERAL: 'LITERAL',
+  COMMENT: 'COMMENT'
+}
+
+export default constants
