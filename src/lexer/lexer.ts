@@ -1,4 +1,4 @@
-import typeCheck from './helper/typeCheck'
+import typeCheck from './util/typeCheck'
 
 interface Token {
   type: string
