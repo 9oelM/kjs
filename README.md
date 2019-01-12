@@ -1,3 +1,9 @@
+# Developing
+## kjs uses gulp. Gulp tasks are:
+```
+gulp watch|lint|typescript|typedoc
+```
+
 # Tools used
 * [jsdoc](https://github.com/jsdoc3/jsdoc)
 * [prettier](https://github.com/prettier/prettier)
@@ -305,3 +311,18 @@ Spent a few hours to get the basic concept.
 * [Submitted an issue on typedoc](https://github.com/TypeStrong/typedoc/issues/919)
 * Fixed miscellaneous errors in gulpfile.
 * Converted the existing code to an ugly typescript for now
+
+# Day 9
+
+:hourglass:: 3-4 hours
+
+While creating the lexer, I noticed that I need an `inputStream` that would take care of input string. 
+
+I deeply investigated [this webpage for reference](http://lisperator.net/pltut/parser/input-stream).
+
+* Created `inputStream.ts` to deal with input operations. 
+* I could actually create a type for whitespace, literal, operator, ... and so on.
+
+I struggled with Typescript on checking types. I am really new to Typescript, so I was not sure if I had to create `type` to check, or something like a function to check. 
+
+# Day 10
