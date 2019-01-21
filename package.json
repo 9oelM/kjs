@@ -4,6 +4,7 @@
   "description": "Javascript in Korean",
   "main": "index.js",
   "dependencies": {
+    "comment-regex": "^1.0.1",
     "kpop": "^0.1.2"
   },
   "devDependencies": {

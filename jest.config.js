@@ -14,4 +14,7 @@ module.exports = {
     "json",
     "node"
   ],
+  testPathIgnorePatterns: [
+    "util.ts",
+  ]
 }
