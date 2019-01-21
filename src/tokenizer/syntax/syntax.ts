@@ -101,21 +101,25 @@ const keywords: string[] = [
 
 const keyword = /멈춰|만약|잡아|종류|일정한|멈추지마|벌레잡아|아무것도아니면|지워|해|아니면|내보내|연장해|마지막으로|반복|함수|만약|불러|에서|의인스턴스|새|반환해|생성자참조해|갈림길|이것|던져|던져|시도해|의종류|빈|동안에|산출해|만들어|구현해|인터페이스|정적|기다려|비동기적|을|를|로|으로|일정하게|만들어/
 
-const digit = /[0-9]/i
+const digit = {
+  test: (ch: string): boolean => {
+    return !Number.isNaN(Number(ch))
+  }
+}
 
 const operator: string = '+-*/%=&|<>!'
 
 const whitespace: string = ' \t\n'
 
-const syntax = {
-  reg: {
-    keyword,
-    digit
+const punctuation: string = ',;(){}[]'
 
-  },
-  str: {
-    whitespace
-  }
+const syntax = {
+  keyword,
+  keywords,
+  digit,
+  whitespace,
+  operator,
+  punctuation
 }
 
 export default syntax
