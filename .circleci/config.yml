@@ -31,7 +31,3 @@ jobs:
         
       # run tests!
       - run: npm test
-      
-      # code coverage
-      - run: npm install -g codecov
-      - run: codecov --token=${CODECOV_TOKEN}
