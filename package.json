@@ -50,10 +50,6 @@
     "typedoc": "./node_modules/.bin/typedoc --out ./docs ./src",
     "watch": "onchange '**/*.ts' -- run-s format tslint typescript"
   },
-  "jest": {
-    "coverageDirectory": "./coverage/",
-    "collectCoverage": true
-  },
   "keywords": [],
   "author": "Joel Mun",
   "license": "MIT"
