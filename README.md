@@ -339,5 +339,9 @@ I deeply investigated [this webpage for reference](http://lisperator.net/pltut/p
 I struggled with Typescript on checking types. I am really new to Typescript, so I was not sure if I had to create `type` to check, or something like a function to check. 
 
 # Day 10
-
+:hourglass:: 1 hour
 * Created tests for `tokenizer` and `inputStream` (`npm test`)
+
+# Day 11
+:hourglass:: 1 hour
+* Set up integration with CircleCI and Codecov.
