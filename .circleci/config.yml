@@ -33,5 +33,5 @@ jobs:
       - run: npm test
       
       # code coverage
-      - run: npm install codecov
+      - run: npm install --save-dev codecov
       - run: ./node_modules/.bin/codecov --token=${CODECOV_TOKEN}
