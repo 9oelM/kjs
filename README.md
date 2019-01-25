@@ -1,3 +1,16 @@
+
+
+<p align="center">
+  <a href = "https://circleci.com/gh/9oelM/kjs"><img src="https://circleci.com/gh/9oelM/kjs.svg?style=svg"/></a>
+  <a href="https://codecov.io/gh/9oelM/kjs">
+  <img src="https://codecov.io/gh/9oelM/kjs/branch/master/graph/badge.svg?token=V942cVCaGe" />
+</a>
+</p>
+
+# kjs 
+Javascript in Korean, just for fun. 
+
+
 # Developing
 ## kjs uses gulp. Gulp tasks are:
 ```
