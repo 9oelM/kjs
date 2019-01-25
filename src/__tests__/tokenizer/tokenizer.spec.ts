@@ -37,10 +37,10 @@ describe('Tokenizer', () => {
         expect(tokenizer.isKeyword(keyword)).toEqual(true)
       })
     })
-    
+
     it('should not recognize any other characters as a punctutation', () => {
       expect(tokenizer.isPunctuation(DUMMY)).toEqual(false)
-      expect(tokenizer.isPunctuation("테스트")).toEqual(false)
+      expect(tokenizer.isPunctuation('테스트')).toEqual(false)
     })
   })
 
@@ -68,20 +68,20 @@ describe('Tokenizer', () => {
         expect(tokenizer.isOperator(op)).toEqual(true)
       })
     })
-    
+
     it('should not recognize any other characters as operators', () => {
       expect(tokenizer.isOperator('@')).toEqual(false)
       expect(tokenizer.isOperator('a')).toEqual(false)
     })
   })
 
-  describe('#isPunctuation', ()=> {
+  describe('#isPunctuation', () => {
     punctuation.split('').forEach((punc: string) => {
       it(`should recognize punctuation ${punc} as a punctuation`, () => {
         expect(tokenizer.isPunctuation(punc)).toEqual(true)
       })
     })
-    
+
     it('should not recognize any other characters as punctutations', () => {
       expect(tokenizer.isPunctuation('@')).toEqual(false)
       expect(tokenizer.isPunctuation('a')).toEqual(false)
