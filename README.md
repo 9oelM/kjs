@@ -1,10 +1,10 @@
 
 
 <p align="center">
-  <a href = "https://circleci.com/gh/9oelM/kjs"><img src="https://circleci.com/gh/9oelM/kjs.svg?style=svg"/></a>
+  <img src="https://circleci.com/gh/9oelM/kjs.svg?style=svg&circle-token=c76ca5c996da961135ff1cf2db53636d0612cb6b">
   <a href="https://codecov.io/gh/9oelM/kjs">
   <img src="https://codecov.io/gh/9oelM/kjs/branch/master/graph/badge.svg?token=V942cVCaGe" />
-</a>
+  </a>
 </p>
 
 # kjs 
